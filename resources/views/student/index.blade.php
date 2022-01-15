@@ -1,14 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                   <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -21,17 +11,56 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <a class="btn btn-success" type="button" href="{{route('student.index')}}">Student index</a>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+
+<div class="row">
+  <div class="col-sm-8 m-auto">
+    <div class="card">
+      <div class="card-body">
+       <a class="btn btn-success" type="button" href="{{route('student.create')}}">Student create</a>
+      	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">roll</th>
+      <th scope="col">email</th>
+      <th scope="col">image</th>
+    </tr>
+  </thead>
+  <tbody>
+  	@foreach($students as $student)
+    <tr>
+      <td>{{$student->name}}</td>
+      <td>{{$student->roll}}</td>
+      <td>{{$student->email}}</td>
+      <td>
+
+    <img src="{{$student->getFirstMediaUrl('images','thumb')}}">
+ </td>
+
+     
+    </tr>
+   @endforeach
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection

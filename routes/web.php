@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Student\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,8 @@ Route::get('admin/dashboard',[App\Http\Controllers\AdminController::class,'dashb
 Route::get('employee/dashboard',[App\Http\Controllers\EmployeeController::class,'dashboard'])->name('employee.dashboard')->middleware('employee');
 
 Route::get('manager/dashboard',[App\Http\Controllers\ManagerController::class,'dashboard'])->name('manager.dashboard')->middleware('manager');
+
+
+
+// studen
+Route::resource('student',StudentController::class);
